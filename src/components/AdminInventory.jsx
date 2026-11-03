@@ -129,7 +129,7 @@ const AdminInventory = () => {
         <input id="inventory-search" type="search" value={search} onChange={event => setSearch(event.target.value)} placeholder="Ej. cafeteras, televisores…" />
         <button type="button" disabled={loading || busy} onClick={refresh}>Actualizar Listado</button>
       </div>
-      {loading && <Loading title="Actualizando productos" description="Estamos organizando las categorías y las existencias registradas." />}}
+      {loading && <Loading title="Actualizando productos" description="Estamos organizando las categorías y las existencias registradas." />}
       {error && <p role="alert" className="evh-admin-inventory-error">{error}</p>}
       {!loading && error && <button type="button" disabled={busy} onClick={refresh}>Reintentar Carga de Inventario</button>}
       {message && !active && <p role="status" className="evh-admin-inventory-success">{message}</p>}
