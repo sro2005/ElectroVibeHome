@@ -38,7 +38,7 @@ const HomePage = () => {
           <span className="evh-customer-art-caption">ENERGÍA PARA TU HOGAR</span>
           <strong>Vive mejor.</strong>
           <small>Elige con intención.</small>
-        </div>  </div>
+        </div>
       </section>
 
       <section className="evh-customer-guidance" aria-labelledby="evh-customer-guidance-title">
