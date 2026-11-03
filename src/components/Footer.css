@@ -96,8 +96,11 @@
   }
 
   .evh-site-footer .evh-footer-inner {
+    width: 100%;
+    max-width: 420px;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     justify-items: stretch;
+    margin-inline: auto;
   }
 
   .evh-site-footer .evh-footer-brand,
