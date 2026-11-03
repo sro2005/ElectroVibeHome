@@ -5,7 +5,7 @@ const Loading = ({
   title = 'Preparando tu espacio',
   description = 'Estamos organizando todo para que continúes con comodidad.'
 }) => (
-  <main className="evh-app-loading" role="status" aria-live="polite" aria-busy="true">
+  <div className="evh-app-loading" role="status" aria-live="polite" aria-busy="true">
     <style>{`
       .evh-app-loading {
         box-sizing: border-box;
@@ -103,7 +103,7 @@ const Loading = ({
         <div className="evh-loading-lines" aria-hidden="true"><span /><span /><span /></div>
       </div>
     </div>
-  </main>
+  </div>
 );
 
 export default Loading;
