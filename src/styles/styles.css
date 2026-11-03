@@ -7395,3 +7395,31 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     font-size: .67rem;
   }
 }
+
+
+/* Portada pública: centrar las llamadas a la acción en pantallas móviles. */
+@media (max-width: 620px) {
+  .evh-landing .evh-hero-copy {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .evh-landing .evh-hero-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .evh-landing .evh-hero-actions .evh-button {
+    width: min(100%, 420px);
+    max-width: 100%;
+    align-self: center;
+    justify-content: center;
+    box-sizing: border-box;
+    margin-inline: auto;
+  }
+}

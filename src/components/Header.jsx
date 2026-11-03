@@ -56,7 +56,7 @@ const Header = () => {
           <span className="evh-site-brand-mark" aria-hidden="true"><FontAwesomeIcon icon={faBolt} /></span>
           <span className="evh-site-brand-copy">
             <strong>ELECTROVIBEHOME</strong>
-            <small>TECNOLOGÍA PARA EL HOGAR</small>
+            <small>ENERGÍA PARA TU HOGAR</small>
           </span>
         </Link>
 
