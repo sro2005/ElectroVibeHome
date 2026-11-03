@@ -85,7 +85,7 @@ const AdminDashboard = () => {
         </div>
         <button type="button" onClick={reload} disabled={loading}>Actualizar Resumen</button>
       </header>
-      {loading && <Loading title="Actualizando el panel" description="Estamos reuniendo la información de pedidos, clientes e inventario." />}}
+      {loading && <Loading title="Actualizando el panel" description="Estamos reuniendo la información de pedidos, clientes e inventario." />}
       {error && <p role="alert">{error}</p>}
       {!loading && !error && (
         <>
