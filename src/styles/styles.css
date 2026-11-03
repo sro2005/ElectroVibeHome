@@ -7423,3 +7423,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     margin-inline: auto;
   }
 }
+
+/* Keep the page shell visually stable while a lazy route is resolving. */
+.evh-app-loading {
+  min-height: max(55vh, calc(100vh - 104px - 220px));
+}
