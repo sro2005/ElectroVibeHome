@@ -7334,3 +7334,64 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     flex: 0 0 19px;
   }
 }
+
+
+/* Mobile role navigation: compact, consistent spacing and icon sizing.
+   Scoped to the responsive header so desktop navigation remains unchanged. */
+@media (max-width: 900px) {
+  .evh-site-header .evh-header-links {
+    align-content: center;
+    column-gap: .35rem;
+    row-gap: .35rem;
+  }
+
+  .evh-site-header .evh-header-links > li {
+    display: flex;
+    align-items: stretch;
+    margin: 0;
+  }
+
+  .evh-site-header .evh-header-links > li > a,
+  .evh-site-header .evh-header-links > li > .evh-site-logout {
+    min-height: 40px;
+    box-sizing: border-box;
+    line-height: 1.2;
+  }
+
+  .evh-site-header .evh-header-links > li > a svg,
+  .evh-site-header .evh-header-links > li > .evh-site-logout svg {
+    flex: 0 0 .95em;
+    width: .95em;
+    height: .95em;
+    margin: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .evh-site-header .evh-header-links {
+    column-gap: .3rem;
+    row-gap: .3rem;
+  }
+
+  .evh-site-header .evh-header-links > li > a,
+  .evh-site-header .evh-header-links > li > .evh-site-logout {
+    min-height: 38px;
+    gap: .3rem;
+    padding: .4rem .5rem;
+    font-size: .7rem;
+    line-height: 1.15;
+  }
+}
+
+@media (max-width: 360px) {
+  .evh-site-header .evh-header-links {
+    column-gap: .2rem;
+    row-gap: .25rem;
+  }
+
+  .evh-site-header .evh-header-links > li > a,
+  .evh-site-header .evh-header-links > li > .evh-site-logout {
+    padding-inline: .4rem;
+    font-size: .67rem;
+  }
+}
