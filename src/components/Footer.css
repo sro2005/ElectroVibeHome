@@ -77,3 +77,52 @@
     letter-spacing: .04em;
   }
 }
+
+
+/* Footer móvil: asegurar simetría respecto al ancho real de la pantalla. */
+@media (max-width: 620px) {
+  .evh-site-footer {
+    width: 100%;
+    box-sizing: border-box;
+    padding-inline: 1rem;
+  }
+
+  .evh-site-footer .evh-footer-inner,
+  .evh-site-footer .evh-footer-legal {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-inline: auto;
+  }
+
+  .evh-site-footer .evh-footer-inner {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-items: stretch;
+  }
+
+  .evh-site-footer .evh-footer-brand,
+  .evh-site-footer .evh-footer-contact,
+  .evh-site-footer .evh-footer-legal {
+    text-align: center;
+  }
+
+  .evh-site-footer .evh-footer-brand,
+  .evh-site-footer .evh-footer-contact {
+    grid-column: 1 / -1;
+    justify-self: stretch;
+  }
+
+  .evh-site-footer .evh-footer-section:not(.evh-footer-contact) {
+    min-width: 0;
+    align-items: center;
+    justify-self: stretch;
+    text-align: center;
+  }
+
+  .evh-site-footer .evh-footer-section h2,
+  .evh-site-footer .evh-footer-section a,
+  .evh-site-footer .evh-footer-resources {
+    max-width: 100%;
+    text-align: center;
+  }
+}
