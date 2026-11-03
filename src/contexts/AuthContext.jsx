@@ -12,6 +12,7 @@ const clearAuthStorage = () => {
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [loginTransition, setLoginTransition] = useState(false);
 
   useEffect(() => {
     const storedToken = localStorage.getItem('authToken');
@@ -47,6 +48,7 @@ const AuthProvider = ({ children }) => {
     localStorage.setItem('userData', JSON.stringify(user));
     localStorage.setItem('userId', String(user._id));
     setUser(user);
+    setLoginTransition(true);
   };
 
   const updateUser = (updatedUser) => {
@@ -57,13 +59,16 @@ const AuthProvider = ({ children }) => {
 
   const handleLogout = () => {
     clearAuthStorage();
+    setLoginTransition(false);
     setUser(null);
   };
+
+  const finishLoginTransition = () => setLoginTransition(false);
 
   if (loading) return <Loading />;
 
   return (
-    <AuthContext.Provider value={{ user, handleLoginSuccess, handleLogout, updateUser }}>
+    <AuthContext.Provider value={{ user, handleLoginSuccess, handleLogout, updateUser, loginTransition, finishLoginTransition }}>
       {children}
     </AuthContext.Provider>
   );

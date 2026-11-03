@@ -42,7 +42,17 @@ const ScrollToTop = () => {
 };
 
 const AppContent = () => {
-  const { user, loading } = useContext(AuthContext);
+  const { user, loading, loginTransition, finishLoginTransition } = useContext(AuthContext);
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    if (!loginTransition || pathname === '/login') return undefined;
+
+    // Keep the branded transition visible long enough to be perceived, then
+    // let the destination render; Suspense remains responsible for slow chunks.
+    const transitionTimer = window.setTimeout(finishLoginTransition, 850);
+    return () => window.clearTimeout(transitionTimer);
+  }, [loginTransition, pathname, finishLoginTransition]);
 
   if (loading) return <Loading />;
 
@@ -52,6 +62,12 @@ const AppContent = () => {
     <div className="evh-app-shell">
       <Header isAuthenticated={!!user} user={user} />
       <div className="evh-app-main">
+      {loginTransition && pathname !== '/login' ? (
+        <Loading
+          title="Preparando tu cuenta"
+          description="Estamos abriendo tu espacio y organizando la información para continuar."
+        />
+      ) : (
       <Suspense fallback={<Loading />}>
       <Routes>
         <Route path="/recover-password" element={isAdmin ? <Navigate to="/home-page" replace /> : <RecoverPassword />} />
@@ -104,6 +120,7 @@ const AppContent = () => {
         <Route path="*" element={<Navigate to={user ? '/home-page' : '/'} replace />} />
       </Routes>
       </Suspense>
+      )}
       </div>
       <Footer />
     </div>
