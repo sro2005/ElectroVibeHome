@@ -7268,3 +7268,69 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   background: #1c3c65;
   color: #fff;
 }
+
+
+/* Customer home: prevent CTA and trust items from overflowing narrow mobile viewports. */
+.evh-customer-home,
+.evh-customer-hero,
+.evh-customer-hero-copy,
+.evh-customer-actions,
+.evh-customer-trust {
+  min-width: 0;
+  box-sizing: border-box;
+}
+.evh-customer-actions .evh-button {
+  box-sizing: border-box;
+  min-width: 0;
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+.evh-customer-trust > span {
+  box-sizing: border-box;
+  min-width: 0;
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 600px) {
+  .evh-customer-home {
+    width: 100%;
+    max-width: 100%;
+    padding-inline: .75rem;
+  }
+  .evh-customer-hero {
+    width: 100%;
+    padding: 1rem;
+  }
+  .evh-customer-actions {
+    width: 100%;
+    align-items: stretch;
+  }
+  .evh-customer-actions .evh-button {
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    min-height: 48px;
+    padding: .8rem 1rem;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.35;
+  }
+  .evh-customer-trust {
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: .5rem;
+  }
+  .evh-customer-trust > span {
+    width: 100%;
+    justify-content: flex-start;
+    padding: .65rem .75rem;
+    line-height: 1.4;
+  }
+  .evh-customer-trust b {
+    flex: 0 0 19px;
+  }
+}
