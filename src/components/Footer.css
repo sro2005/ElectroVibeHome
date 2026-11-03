@@ -152,3 +152,21 @@
     max-width: 100%;
   }
 }
+
+
+/* Alinear cada enlace de Recursos contra el borde derecho en móvil. */
+@media (max-width: 620px) {
+  .evh-site-footer .evh-footer-inner > .evh-footer-section:nth-of-type(4) .evh-footer-resources {
+    display: grid;
+    justify-items: end;
+    align-items: stretch;
+    text-align: right;
+  }
+
+  .evh-site-footer .evh-footer-inner > .evh-footer-section:nth-of-type(4) .evh-footer-resources a {
+    justify-self: end;
+    width: fit-content;
+    max-width: 100%;
+    text-align: right;
+  }
+}
