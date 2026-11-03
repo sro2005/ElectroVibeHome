@@ -1,4 +1,4 @@
-import LoadingBrandMark from './LoadingBrandMark';
+import Loading from './Loading';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -129,17 +129,7 @@ const AdminInventory = () => {
         <input id="inventory-search" type="search" value={search} onChange={event => setSearch(event.target.value)} placeholder="Ej. cafeteras, televisores…" />
         <button type="button" disabled={loading || busy} onClick={refresh}>Actualizar Listado</button>
       </div>
-      {loading && (
-        <div className="evh-loading-panel evh-admin-loading" role="status" aria-live="polite">
-          <span className="evh-loading-mark" aria-hidden="true"><LoadingBrandMark /></span>
-          <div className="evh-loading-copy">
-            <span className="evh-loading-kicker">INVENTARIO</span>
-            <h2>Actualizando productos</h2>
-            <p>Estamos organizando las categorías y las existencias registradas.</p>
-            <div className="evh-loading-lines" aria-hidden="true"><span /><span /><span /></div>
-          </div>
-        </div>
-      )}
+      {loading && <Loading title="Actualizando productos" description="Estamos organizando las categorías y las existencias registradas." />}
       {error && <p role="alert" className="evh-admin-inventory-error">{error}</p>}
       {!loading && error && <button type="button" disabled={busy} onClick={refresh}>Reintentar Carga de Inventario</button>}
       {message && !active && <p role="status" className="evh-admin-inventory-success">{message}</p>}

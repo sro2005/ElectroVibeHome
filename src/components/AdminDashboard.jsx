@@ -1,4 +1,4 @@
-import LoadingBrandMark from './LoadingBrandMark';
+import Loading from './Loading';
 import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -85,17 +85,7 @@ const AdminDashboard = () => {
         </div>
         <button type="button" onClick={reload} disabled={loading}>Actualizar Resumen</button>
       </header>
-      {loading && (
-        <div className="evh-loading-panel evh-admin-loading" role="status" aria-live="polite">
-          <span className="evh-loading-mark" aria-hidden="true"><LoadingBrandMark /></span>
-          <div className="evh-loading-copy">
-            <span className="evh-loading-kicker">CENTRO DE CONTROL</span>
-            <h2>Actualizando el panel</h2>
-            <p>Estamos reuniendo la información de pedidos, clientes e inventario.</p>
-            <div className="evh-loading-lines" aria-hidden="true"><span /><span /><span /></div>
-          </div>
-        </div>
-      )}
+      {loading && <Loading title="Actualizando el panel" description="Estamos reuniendo la información de pedidos, clientes e inventario." />}
       {error && <p role="alert">{error}</p>}
       {!loading && !error && (
         <>
