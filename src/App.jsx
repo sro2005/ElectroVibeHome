@@ -49,8 +49,9 @@ const AppContent = () => {
   const isAdmin = user?.role === 'admin';
 
   return (
-    <>
+    <div className="evh-app-shell">
       <Header isAuthenticated={!!user} user={user} />
+      <div className="evh-app-main">
       <Suspense fallback={<Loading />}>
       <Routes>
         <Route path="/recover-password" element={isAdmin ? <Navigate to="/home-page" replace /> : <RecoverPassword />} />
@@ -103,8 +104,9 @@ const AppContent = () => {
         <Route path="*" element={<Navigate to={user ? '/home-page' : '/'} replace />} />
       </Routes>
       </Suspense>
+      </div>
       <Footer />
-    </>
+    </div>
   );
 };
 
